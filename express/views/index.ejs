@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Gogoanime Livestreaming</title>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="title">Recently Added Anime</h1>
+      <% for (let anime of animeList) { %>
+        <div class="anime">
+          <img src="<%= anime.thumbnail %>" alt="<%= anime.title %>">
+          <h2 class="anime-title"><%= anime.title %></h2>
+          <a href="/watch/<%= anime.slug %>">Watch Now</a>
+        </div>
+      <% } %>
+      <div class="pagination">
+        <% if (currentPage > 1) { %>
+          <a href="/anime/<%= parseInt(currentPage) - 1 %>">Prev</a>
+        <% } %>
+        <% if (animeList.length === 10) { %>
+          <a href="/anime/<%= parseInt(currentPage) + 1 %>">Next</a>
+        <% } %>
+      </div>
+    </div>
+  </body>
+</html>
